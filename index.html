@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitaWatch — Health Monitoring System</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="page-login" class="page active">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="login-logo">💊</div>
+      <h1>VitaWatch</h1>
+      <p>Your personal health monitoring companion</p>
+    </div>
+
+    <!-- Login Form -->
+<div id="login-form">
+  <div class="field-group">
+    <label for="login-email">Email Address</label>
+    <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email">
+  </div>
+
+  <div class="field-group">
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" placeholder="Enter your password" autocomplete="current-password">
+    <div class="forgot-wrapper">
+      <a class="forgot-link" onclick="showForgot()">Forgot password?</a>
+    </div>
+  </div>
+
+  <div id="login-error" class="error-msg">⚠️ Please enter a valid email and password.</div>
+  <button class="btn btn-primary" onclick="doLogin()">🔐 Sign In</button>
+
+  <div class="divider">or</div>
+  <button class="btn btn-outline" onclick="showRegister()">✨ Create New Account</button>
+</div>
+
+    <!-- Register Form -->
+    <div id="register-form" class="hidden">
+      <div class="field-group">
+        <label>Full Name</label>
+        <input type="text" id="reg-name" placeholder="Dr. / Mr. / Ms. Your Name">
+      </div>
+      <div class="field-group">
+        <label>Email Address</label>
+        <input type="email" id="reg-email" placeholder="you@example.com">
+      </div>
+      <div class="field-group">
+        <label>Password</label>
+        <input type="password" id="reg-password" placeholder="Create a strong password">
+      </div>
+      <div id="reg-error" class="error-msg">⚠️ Please fill all fields correctly.</div>
+      <div id="reg-success" class="success-msg">✅ Account created! Please sign in.</div>
+      <button class="btn btn-primary" onclick="doRegister()">🚀 Create Account</button>
+      <div class="divider">or</div>
+      <button class="btn btn-outline" onclick="showLogin()">← Back to Sign In</button>
+    </div>
+
+    <!-- Forgot Password -->
+    <div id="forgot-form" class="hidden">
+      <div class="field-group">
+        <label>Email Address</label>
+        <input type="email" id="forgot-email" placeholder="Enter registered email">
+      </div>
+      <div id="forgot-success" class="success-msg">📧 Reset link sent to your email!</div>
+      <button class="btn btn-primary" onclick="doForgot()">📨 Send Reset Link</button>
+      <div class="divider">or</div>
+      <button class="btn btn-outline" onclick="showLogin()">← Back to Sign In</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP SHELL -->
+<div id="page-app" class="page">
+  <nav class="navbar">
+    <div class="nav-brand" onclick="showTab('dashboard')">
+      <div class="nav-logo">💊</div>
+      Vita<span class="accent">Watch</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" id="tab-dashboard" onclick="showTab('dashboard')">🏠 Dashboard</button>
+      <button class="nav-tab" id="tab-symptoms" onclick="showTab('symptoms')">🩺 Symptoms</button>
+      <button class="nav-tab" id="tab-emergency" onclick="showTab('emergency')">🚨 Emergency</button>
+      <button class="nav-tab" id="tab-reminders" onclick="showTab('reminders')">⏰ Reminders</button>
+      <button class="nav-tab" id="tab-reports" onclick="showTab('reports')">📋 Reports</button>
+    </div>
+    <div class="nav-right">
+      <div style="position:relative;">
+        <div class="avatar" id="user-avatar" onclick="document.getElementById('logout-modal').classList.add('open')">JD</div>
+        <div class="badge-dot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DASHBOARD CONTENT -->
+  <div id="tab-content-dashboard" class="page-content">
+    <div class="dash-welcome">
+      <h2 id="welcome-name">Good morning, John! 👋</h2>
+      <p>Here's your health overview for today.</p>
+      <div class="health-score">
+        <div class="dot"></div>
+        Health Score: <strong>86 / 100</strong> — Good
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
